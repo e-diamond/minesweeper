@@ -1,0 +1,33 @@
+* {
+  margin: auto;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+table, tr, td {
+  border-collapse: collapse;
+  background-color: #c9c9c9;
+  border: 1px solid black;
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+tr, td {
+  width: 50px;
+  height: 50px;
+}
+
+img {
+  width: inherit;
+  height: inherit;
+}
+
+#overlay {
+  z-index: 1;
+  position: absolute;
+  /* top: 250px;
+  left: 31%; */
+  margin: auto auto;
+  font-size: 100px;
+}
