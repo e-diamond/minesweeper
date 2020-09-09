@@ -127,7 +127,7 @@ class Cell {
     this.x = x;
     this.value = null;
     this.revealed = false;
-    this.flagged = false;
+    this.flag_status = 0;
   }
 
   // get cell value by counting surrounding mines
@@ -203,28 +203,38 @@ class Cell {
       // get element
       var cell = document.getElementById(id);
 
-      // check if cell is flagged
-      if (this.flagged) {
-        // deflag cell
-        this.flagged = false;
-        cell.firstChild.remove();
-        flags++;
-      }else if (flags > 0){
-        // flag cell
-        this.flagged = true;
-        cell.innerHTML = ">";
-        flags--;
+      // check flag status of cell
+      switch (this.flag_status) {
 
-        // check for gameEnd
-        for (var i = 0; i < minearr.length; i++) {
-          if (!minearr[i].flagged) {
-            break;
+        case 0:
+          if (flags > 0) {
+            this.flag_status = (this.flag_status+1) % 3;
+            cell.innerHTML = ">";
+            flags--;
+
+            // check for gameEnd
+            for (var i = 0; i < minearr.length; i++) {
+              if (minearr[i].flag_status != 1) {
+                break;
+              }
+            }
+            if (i == mines) {
+              gameEnd(true);
+              document.getElementById("overlay").innerHTML = "You Win!";
+            }
           }
-        }
-        if (i == mines) {
-          gameEnd(true);
-          document.getElementById("overlay").innerHTML = "You Win!";
-        }
+          break;
+
+        case 1:
+          this.flag_status = (this.flag_status+1) % 3;
+          cell.innerHTML = "?";
+          flags++;
+          break;
+
+        case 2:
+          this.flag_status = (this.flag_status+1) % 3;
+          cell.firstChild.remove();
+          break;
       }
 
       updateInfo();
