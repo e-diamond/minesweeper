@@ -37,7 +37,7 @@ function hiddenTable(arr) {
   for (var i = 0; i < arr.length; i++) {
     output += "<tr>";
     for (var j = 0; j < arr[i].length; j++) {
-      output += ("<td id=\"" + i + "_" + j + "\" class=\"cell\" onmouseover=\"highlight(this.id)\" onmouseout=\"unhighlight(this.id)\" onmouseup=\"played(this.id, event)\"></td>");
+      output += ("<td id=\"" + i + "_" + j + "\" class=\"cell\" onmouseup=\"played(this.id, event)\"></td>");
     }
     output += "</tr>";
   }
@@ -66,7 +66,7 @@ function updateTimer() {
     seconds = "0" + seconds;
   }
 
-  // write timer to screen 
+  // write timer to screen
   document.getElementById("timer").innerHTML = minutes + ":" + seconds;
 }
 
@@ -101,27 +101,6 @@ function played(id, event) {
   }
 }
 
-// highlight cell on mouse over
-function highlight(id) {
-  // get cell id
-  var x = identify(id);
-
-  // highlight only hidden cells
-  if (!grid[x[0]][x[1]].revealed) {
-    document.getElementById(id).style.backgroundColor = "#f5f5f5";
-  }
-}
-
-// unhightlight cell on mouse out
-function unhighlight(id) {
-  // get cell id
-  var x = identify(id);
-
-  // consider only hidden cells
-  if (!grid[x[0]][x[1]].revealed) {
-    document.getElementById(id).style.backgroundColor = "#c9c9c9";
-  }
-}
 
 // update number of flags available
 function updateInfo() {
@@ -137,8 +116,6 @@ function gameEnd(win) {
   allcells = document.getElementsByClassName("cell");
   for (var i = 0; i < allcells.length; i++) {
     att = allcells[i].attributes;
-    att.removeNamedItem("onmouseover");
-    // att.removeNamedItem("onmouseout");
     att.removeNamedItem("onmouseup");
   }
 }

@@ -31,3 +31,7 @@ img {
   margin: auto auto;
   font-size: 100px;
 }
+
+.cell:hover{
+  background-color: #f5f5f5;
+}
