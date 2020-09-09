@@ -215,7 +215,7 @@ class Cell {
         case 0:
           if (flags > 0) {
             this.flag_status = (this.flag_status+1) % 3;
-            cell.innerHTML = ">";
+            cell.innerHTML = "<img src=\"Antu_flag-red.svg\" alt=\">\">";
             flags--;
 
             // check for gameEnd
