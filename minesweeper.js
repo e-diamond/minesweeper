@@ -118,6 +118,13 @@ function gameEnd(win) {
     att = allcells[i].attributes;
     att.removeNamedItem("onmouseup");
   }
+
+  // put text into overlay
+  if (win) {
+    document.getElementById("overlay").innerHTML = "You Win!";
+  } else {
+    document.getElementById("overlay").innerHTML = "Game Over";
+  }
 }
 
 // create Cell object
@@ -188,7 +195,6 @@ class Cell {
       }else if (this.value == 9) {
         gameEnd(false);
         document.getElementById(id).innerHTML = "O";
-        document.getElementById("overlay").innerHTML = "Game Over";
       }else {
         document.getElementById(id).innerHTML = this.value;
       }
@@ -220,7 +226,6 @@ class Cell {
             }
             if (i == mines) {
               gameEnd(true);
-              document.getElementById("overlay").innerHTML = "You Win!";
             }
           }
           break;
