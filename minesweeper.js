@@ -194,7 +194,7 @@ class Cell {
         }
       }else if (this.value == 9) {
         gameEnd(false);
-        document.getElementById(id).innerHTML = "O";
+        document.getElementById(id).innerHTML = "<img src=\"cartoon-sea-mine-clipart.svg\" alt=\"O\">";
       }else {
         document.getElementById(id).innerHTML = this.value;
       }
