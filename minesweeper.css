@@ -25,14 +25,24 @@ img {
 }
 
 #overlay {
+  position: fixed;
+  display: none;
   z-index: 1;
-  position: absolute;
-  /* top: 250px;
-  left: 31%; */
-  margin: auto auto;
   font-size: 100px;
+  width: 100%;
+  height: 100%;
 }
 
 .cell:hover{
   background-color: #f5f5f5;
+}
+
+
+#licenses {
+  left: 0;
+  bottom: 0;
+}
+
+#licenses p{
+  text-align: left;
 }

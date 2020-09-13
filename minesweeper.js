@@ -125,6 +125,9 @@ function gameEnd(win) {
   } else {
     document.getElementById("overlay").innerHTML = "Game Over";
   }
+
+  // display overlay
+  document.getElementById("overlay").style.display = "block";
 }
 
 // create Cell object
