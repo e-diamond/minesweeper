@@ -104,7 +104,7 @@ function played(id, event) {
 
 // update number of flags available
 function updateInfo() {
-  document.getElementById("mines").innerHTML = "Flags: " + flags;
+  document.getElementById("flagcount").innerHTML = "Flags: " + flags;
 }
 
 // carries out end of game procedure
@@ -125,6 +125,9 @@ function gameEnd(win) {
   } else {
     document.getElementById("overlay").innerHTML = "Game Over";
   }
+
+  // display overlay
+  document.getElementById("overlay").style.display = "block";
 }
 
 // create Cell object
@@ -194,7 +197,7 @@ class Cell {
         }
       }else if (this.value == 9) {
         gameEnd(false);
-        document.getElementById(id).innerHTML = "O";
+        document.getElementById(id).innerHTML = "<img src=\"cartoon-sea-mine-clipart.svg\" alt=\"O\">";
       }else {
         document.getElementById(id).innerHTML = this.value;
       }
@@ -215,7 +218,7 @@ class Cell {
         case 0:
           if (flags > 0) {
             this.flag_status = (this.flag_status+1) % 3;
-            cell.innerHTML = ">";
+            cell.innerHTML = "<img src=\"Antu_flag-red.svg\" alt=\">\">";
             flags--;
 
             // check for gameEnd
