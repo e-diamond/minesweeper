@@ -104,7 +104,7 @@ function played(id, event) {
 
 // update number of flags available
 function updateInfo() {
-  document.getElementById("mines").innerHTML = "Flags: " + flags;
+  document.getElementById("flagcount").innerHTML = "Flags: " + flags;
 }
 
 // carries out end of game procedure

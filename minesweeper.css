@@ -37,12 +37,6 @@ img {
   background-color: #f5f5f5;
 }
 
-
-#licenses {
-  left: 0;
-  bottom: 0;
-}
-
-#licenses p{
+.license {
   text-align: left;
 }
